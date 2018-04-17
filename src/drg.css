@@ -1,0 +1,155 @@
+.container {
+  text-align: center;
+  /*background-color: green;*/
+  padding: 30px;
+  margin: 100px;
+}
+
+.innerTable {
+  background-color: blue;
+  padding: 30px;
+  border: 3px solid black;
+}
+
+.row {
+  width: 100%;
+  /*background-color: red;*/
+  height: 200px;
+  text-align: left;
+  vertical-align: middle;
+  display: table;
+}
+
+.cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.rowFlex {
+  display: flex;
+  /*background-color: aqua;*/
+}
+
+.rowFlexInner {
+  display: flex;
+  /*background-color: #1e90ff;*/
+  border-radius: 25px;
+  margin-top: 10px;
+  width: 90%;
+}
+
+.col {
+  text-align: center;
+  font-family: arial;
+  font-size: 12pt;
+}
+
+.btn {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 5px 40px 5px;
+  font-size: 14pt;
+  overflow: hidden;
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+  background-color: #1e90ff;
+  color: #ffffff;
+}
+
+.mainContainer {
+  background-color: white;
+  border: 1px solid black;
+  padding-bottom: 40px;
+
+}
+
+.infoBoxContainer {
+  display: inline-block;
+  text-align: center;
+}
+
+.titleText {
+  font-family: arial;
+  font-size: 12pt;
+  padding-bottom: 4px;
+  padding-top: 10px;
+}
+
+.infoBox {
+  text-align: center;
+  height: 120px;
+  display: block;
+  margin-top: 30px;
+  padding: 10px;
+}
+
+.textAreaInfo {
+  width: 200px;
+  background-color: #ddd;
+}
+
+.imageBox {
+  background-color: #ddd;
+  /*height: 90px;*/
+  /*display: block;*/
+  /*margin: 5px;*/
+}
+
+.imageTitle {
+  font-family: arial;
+  font-size: 12pt;
+}
+
+.typeBox {
+  text-align: center;
+  width: 250px;
+  height: 120px;
+}
+
+.aboutTitle {
+  margin: 2em 0 0;
+  font-family: arial;
+  font-size: 14pt;
+}
+
+.aboutInfo {
+  font-family: arial;
+  font-size: 12pt;
+}
+
+.mqOrgText {
+  margin: 10px;
+  padding: 20px;
+  -webkit-box-shadow: 10px 9px 32px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 9px 32px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 9px 32px 0px rgba(0, 0, 0, 0.75);
+}
+
+.aboutContainer {
+  padding: 10px;
+  visibility: visible;
+}
+
+.imageBoxColored {
+  width: 200px;
+  background-color: #ddd;
+}
+
+.imageWrapper {
+  width: 200px;
+  height: 120px;
+  background-color: #ddd;
+  text-align: center;
+  display: inline-block;
+}
+
+.copyButton {
+  margin-bottom: 10px;
+}
+
+.copyable {}
