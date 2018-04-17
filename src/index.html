@@ -1,0 +1,178 @@
+<html>
+
+<head>
+
+  <meta name="viewport" content="width=800">
+
+  <title>ChromeQuill</title>
+
+  <link rel="stylesheet" type="text/css" href="drg.css">
+  <link rel="stylesheet" type="text/css" href="home.css">
+  <link rel="stylesheet" type="text/css" href="mathquill.css">
+  <link rel="stylesheet" type="text/css" href="keys.css">
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <script type="text/javascript" src="jquery.min.js"></script>
+  <script type="text/javascript" src="mathquill.js"></script>
+
+  <script type="text/javascript">
+    
+  
+    var self = this;
+
+    $(document).ready(function() {
+      $('textarea[x-palm-disable-ste-all="true"]').focus();    
+      $("#math-field textarea").bind('input propertychange', function() {
+        setTimeout(function() {
+          getImage();
+          getHTML();
+        }, 125)
+      });
+      console.log($("textarea"));
+    });
+
+
+    function getImage() {
+      console.log("getImage run");
+      document.getElementById('latexImage').innerHTML =
+        '<img src="https://chart.googleapis.com/chart?cht=tx&chf=bg,s,00000000&chl=' + encodeURIComponent(document.getElementById('latex').innerHTML) + '" border="0" />';
+    }
+
+    function getHTML() {
+      document.getElementById('HTMLArea').innerHTML =
+        '&lt;script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"&gt;&lt;/script&gt;$$' +encodeURIComponent(document.getElementById('latex').innerHTML) + '$$';
+    }
+
+    function toggleAbout() {
+      var vis = document.getElementById("aboutContainerID").style.visibility;
+      if (vis == "visible") {
+        document.getElementById("aboutContainerID").style.visibility = "hidden";
+      }
+      else {
+        document.getElementById("aboutContainerID").style.visibility = "visible"
+      }
+    }
+
+    function copyHTML() {
+      var copyText = document.getElementById("HTMLArea");
+      copyText.select();
+      document.execCommand("Copy");
+    }
+
+    function copyLatex() {
+      var copyText = document.getElementById("latex");
+      copyText.select();
+      document.execCommand("Copy");
+    }
+
+    function copyImage() {
+      var image = document.getElementById("latexImage");
+      image.attributes.contenteditable = true;
+      SelectText(image);
+      document.execCommand('copy');
+      window.getSelection().removeAllRanges();
+      image.removeAttribute('contenteditable');
+    }
+  </script>
+
+</head>
+
+<body>
+
+  <main>
+
+    <center>
+      <div class="mainContainer" style="background-color:#1e90ff">
+
+        <div class="titleText">Type math here:<br /><br /><span class="typeBox" id="math-field"></span></div>
+
+        <div class="infoBoxContainer">
+
+          <div class="infoBox"><span class="imageTitle"><button class="copyButton" onclick="copyImage()">Copy Image</button><br /></span>
+            <div class="imageWrapper">
+              <div class="copyable">
+                <br /><span id='latexImage' class="copyable">&nbsp;</span></div>
+            </div>
+          </div>
+
+          <div class="infoBox">
+            <span class="col"><button class="copyButton" onclick="copyLatex()">Copy LaTeX</button><br />
+                <textarea class="textAreaInfo" id="latex" type="text" name="latexTextField" readonly rows="7">&nbsp;</textarea>
+              </span>
+          </div>
+
+          <div class="infoBox">
+            <span class="col"><button class="copyButton" onclick="copyHTML()">Copy HTML</button><br />
+                  <textarea class="textAreaInfo" id="HTMLArea" type="text" name="telnum" readonly rows="7"></textarea>
+            </span>
+
+            <script>
+              //Cross-browser function to select content
+              function SelectText(element) {
+                var doc = document;
+                if (doc.body.createTextRange) {
+                  var range = document.body.createTextRange();
+                  range.moveToElementText(element);
+                  range.select();
+                }
+                else if (window.getSelection) {
+                  var selection = window.getSelection();
+                  var range = document.createRange();
+                  range.selectNodeContents(element);
+                  selection.removeAllRanges();
+                  selection.addRange(range);
+                }
+              }
+
+            </script>
+
+          </div>
+
+        </div>
+
+      </div>
+      
+    </center>
+
+    <div class="aboutContainer" id="aboutContainerID">
+      <p class="aboutInfo">This extension builds on the wonderful work from the people at MathQuill. Please support them!</p>
+      <div class="mqOrgText">
+        <p class="aboutInfo">MathQuill is an open source formula editor for the Web maintained by <a href="http://github.com/laughinghan" title="Han" class="github-mention">@laughinghan</a> and <a href="http://github.com/stufflebear" title="Mary" class="github-mention">@stufflebear</a>.</p>
+        <p class="aboutInfo">MathQuill was born of a need to communicate math. The creators, <span class="github-mention">@laughinghan</span> and <a href="http://github.com/jneen" title="Jeanine" class="github-mention">@jneen</a>, used LaTeX for projects together, but struggled
+          to collaborate online once they were apart. They wanted a tool to both write and read math without resorting to ugly flat text or more cumbersome conventions.</p>
+        <p class="aboutInfo">After a couple of iterations, MathQuill had become widely useful. Today, MathQuill is used in educational software, math visualizations, collaborative editors, and more.</p>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    var mathFieldSpan = document.getElementById('math-field');
+    var latexSpan = document.getElementById('latex');
+
+    var MQ = MathQuill.getInterface(2); // for backcompat
+    var mathField = MQ.MathField(mathFieldSpan, {
+      spaceBehavesLikeTab: true, // configurable
+      handlers: {
+        edit: function() { // useful event handlers
+          latexSpan.textContent = mathField.latex(); // simple API
+        }
+      }
+    });
+  </script>
+
+</body>
+
+</html>
+
+
+<!-- 
+
+QUILL:
+https://www.publicdomainpictures.net/en/view-image.php?image=150713&picture=inkwell-feather-quill-clipart
+
+CODE TO COPY IMAGE:
+https://github.com/owaisafaq/copier-js
+
+SPECIAL THANKS TO JOHN GHIDIU FOR HELPING BEAUTIFY THE CODE
+-->
