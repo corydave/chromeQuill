@@ -1,6 +1,5 @@
 .container {
   text-align: center;
-  /*background-color: green;*/
   padding: 30px;
   margin: 100px;
 }
@@ -13,7 +12,6 @@
 
 .row {
   width: 100%;
-  /*background-color: red;*/
   height: 200px;
   text-align: left;
   vertical-align: middle;
@@ -27,12 +25,10 @@
 
 .rowFlex {
   display: flex;
-  /*background-color: aqua;*/
 }
 
 .rowFlexInner {
   display: flex;
-  /*background-color: #1e90ff;*/
   border-radius: 25px;
   margin-top: 10px;
   width: 90%;
@@ -65,7 +61,6 @@
   background-color: white;
   border: 1px solid black;
   padding-bottom: 40px;
-
 }
 
 .infoBoxContainer {
@@ -82,7 +77,7 @@
 
 .infoBox {
   text-align: center;
-  height: 120px;
+  /* height: 120px; */
   display: block;
   margin-top: 30px;
   padding: 10px;
@@ -142,14 +137,23 @@
 
 .imageWrapper {
   width: 200px;
-  height: 120px;
+  height: 100px;
   background-color: #ddd;
   text-align: center;
   display: inline-block;
 }
 
-.copyButton {
-  margin-bottom: 10px;
-}
-
 .copyable {}
+
+.copyButton {
+  background-color: white;
+  font-size: 1.05em;
+  margin-top: 10px;
+  padding-top:5px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: #1e90ff;
+  font-family: arial;
+  font-weight: bold;
+}
