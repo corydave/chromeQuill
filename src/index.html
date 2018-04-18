@@ -39,8 +39,16 @@
     }
 
     function getHTML() {
+        document.getElementById('HTMLArea').innerHTML =
+        '<img src="https://chart.googleapis.com/chart?cht=tx&chf=bg,s,00000000&chl=' + document.getElementById('latex').innerHTML + '" border="0" alt="' + document.getElementById('latex').innerHTML + '" />';
+        
+        '&lt;script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"&gt;&lt;/script&gt;$$' +encodeURIComponent(document.getElementById('latex').innerHTML) + '$$';        
+        
+    /*
+    // Code to get MathJax formatted code 
       document.getElementById('HTMLArea').innerHTML =
         '&lt;script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML"&gt;&lt;/script&gt;$$' +encodeURIComponent(document.getElementById('latex').innerHTML) + '$$';
+     */
     }
 
     function toggleAbout() {
@@ -88,7 +96,7 @@
 
         <div class="infoBoxContainer">
 
-          <div class="infoBox"><span class="imageTitle"><button class="copyButton" onclick="copyImage()">Copy Image</button><br /></span>
+          <div class="infoBox"><span class="imageTitle"><button class="copyButton" onclick="copyImage()">COPY IMAGE</button><br /></span>
             <div class="imageWrapper">
               <div class="copyable">
                 <br /><span id='latexImage' class="copyable">&nbsp;</span></div>
@@ -96,13 +104,13 @@
           </div>
 
           <div class="infoBox">
-            <span class="col"><button class="copyButton" onclick="copyLatex()">Copy LaTeX</button><br />
+            <span class="col"><button class="copyButton" onclick="copyLatex()">COPY LaTeX</button><br />
                 <textarea class="textAreaInfo" id="latex" type="text" name="latexTextField" readonly rows="7">&nbsp;</textarea>
               </span>
           </div>
 
           <div class="infoBox">
-            <span class="col"><button class="copyButton" onclick="copyHTML()">Copy HTML</button><br />
+            <span class="col"><button class="copyButton" onclick="copyHTML()">COPY HTML</button><br />
                   <textarea class="textAreaInfo" id="HTMLArea" type="text" name="telnum" readonly rows="7"></textarea>
             </span>
 
@@ -167,6 +175,7 @@
 
 
 <!-- 
+
 
 QUILL:
 https://www.publicdomainpictures.net/en/view-image.php?image=150713&picture=inkwell-feather-quill-clipart
